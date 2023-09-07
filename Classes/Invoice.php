@@ -2,11 +2,11 @@
 
 namespace Classes;
 
-class Invoices
+class Invoice
 {
     public function index()
     {
-        return 'Invoices';
+        return 'Invoice';
     }
 
     public function create()
