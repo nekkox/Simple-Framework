@@ -1,6 +1,6 @@
 <?php
 
-namespace Classes;
+namespace app\Controllers;
 
 class Invoice
 {
@@ -12,7 +12,7 @@ class Invoice
     public function create()
     {
         var_dump($_POST);
-        return '<form action="/router/invoices/create" method="post" <label>Amount</label> <input type="text" name="amount">';
+        return '<form action="/router/invoice/create" method="post" <label>Amount</label> <input type="text" name="amount">';
 
     }
 
