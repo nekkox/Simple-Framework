@@ -2,17 +2,17 @@
 
 namespace app\Controllers;
 
-class Invoice
+class InvoiceController
 {
     public function index()
     {
-        return 'Invoice';
+        return '';
     }
 
     public function create()
     {
         var_dump($_POST);
-        return '<form action="/router/invoice/create" method="post" <label>Amount</label> <input type="text" name="amount">';
+        return '';
 
     }
 
