@@ -2,18 +2,12 @@
 
 namespace app\Controllers;
 
+use app\View;
+
 class HomeController
 {
     public function index(){
-        echo "HOME";
-        echo "<br>";
-        return <<<FORM
-<form action="/router/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="receipt" />
-    <button type="submit">Upload</button>
-</form>
-FORM;
-
+        return (new View('index_view'))->render();
     }
 
     public function upload(){

@@ -1,16 +1,16 @@
 <?php
 require "bootstrap.php";
-define('STORAGE_PATH', __DIR__ . DIRECTORY_SEPARATOR . 'app'.DIRECTORY_SEPARATOR. 'storage');
-
+define('STORAGE_PATH', __DIR__ . '/' . 'app'.'/'. 'storage');
+define('VIEW_PATH', __DIR__ . '/app/views' );
 $router = new app\Router();
 //$router->register('/router/', function() {echo "Home";});
 //$router->register('/router/invoices', function(){ echo "Invoice";});
 
 //Creating routes
 $router->get('/router/', [\app\Controllers\HomeController::class, 'index']);
-$router->get('/router/invoice', [\app\Controllers\InvoiceController::class, 'index']);
-$router->get('/router/invoice/create', [\app\Controllers\InvoiceController::class, 'create']);
-$router->post('/router/invoice/create', [\app\Controllers\InvoiceController::class, 'store']);
+$router->get('/router/invoices', [\app\Controllers\InvoiceController::class, 'index']);
+$router->get('/router/invoices/create', [\app\Controllers\InvoiceController::class, 'create']);
+$router->post('/router/invoices/create', [\app\Controllers\InvoiceController::class, 'store']);
 $router->post('/router/upload', [\app\Controllers\HomeController::class, 'upload']);
 
 echo $router->resolve
@@ -19,3 +19,4 @@ echo $router->resolve
 
 var_dump($router->routes());
 var_dump(STORAGE_PATH);
+var_dump(VIEW_PATH);
