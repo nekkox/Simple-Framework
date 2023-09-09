@@ -2,6 +2,7 @@
 
 namespace app\Controllers;
 
+use app\Exceptions\UploadingFileException;
 use app\View;
 
 class HomeController
@@ -18,13 +19,28 @@ class HomeController
     }
 
     public function upload(){
+
+        if(empty($_FILES)){
+            throw new UploadingFileException();
+        }
+
     $filepath = STORAGE_PATH . '/'. $_FILES['receipt']['name'];
     move_uploaded_file($_FILES['receipt']['tmp_name'], $filepath);
 
-    echo '<pre>';
+    header('Location: /router/');
+    exit;
+   /* echo '<pre>';
     var_dump(pathinfo($filepath));
-    echo '</pre>';
+    echo '</pre>';*/
 
+    }
+
+    public function download()
+    {
+        header('Content-Type: image/jpg');
+        header('Content-Disposition: attachment; filename="xxxx.jpg"');
+
+        readfile(STORAGE_PATH. '/'. 'modern-x86-assembly-language-programming-3rd.jpg');
     }
 
 }
