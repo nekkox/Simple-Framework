@@ -15,19 +15,44 @@ class View
         $this->params = $params;
     }
 
-    public function render() : bool|string
+
+    public static function make(string $view, array $params = []):static
+    {
+        return new static($view, $params);
+    }
+
+    public function render() : string
     {
         $viewPath = VIEW_PATH . '/'. $this->view. '.php';
 
         if (! file_exists($viewPath)) {
-            throw new ViewNotFoundException('View not found');
+            throw new ViewNotFoundException();
         }
 
-      ob_start();
+        foreach ($this->params as $k => $v){
+            $$k = $v;
+        }
+        //the same as extract($this->params)
 
+         ob_start();
         include $viewPath;
-
         return (string) ob_get_clean();
+        }
 
+        public function __toString(): string
+        {
+           return $this->render();
+        }
+
+        public function __get(string $name)
+        {
+            if(isset($this->params[$name])){
+                return $this->params[$name];
+            }else{
+                return null;
+            }
+            //$this->params[$name] ?? null;
+        }
 }
-}
+
+

@@ -13,10 +13,6 @@ $router->get('/router/invoices/create', [\app\Controllers\InvoiceController::cla
 $router->post('/router/invoices/create', [\app\Controllers\InvoiceController::class, 'store']);
 $router->post('/router/upload', [\app\Controllers\HomeController::class, 'upload']);
 
-echo $router->resolve
-    ($_SERVER['REQUEST_URI'],
-    strtolower($_SERVER['REQUEST_METHOD']));
+echo $router->resolve($_SERVER['REQUEST_URI'],strtolower($_SERVER['REQUEST_METHOD']));
 
-var_dump($router->routes());
-var_dump(STORAGE_PATH);
-var_dump(VIEW_PATH);
+

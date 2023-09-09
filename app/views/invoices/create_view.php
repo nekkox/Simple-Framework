@@ -1,1 +1,1 @@
-<form action="/router/invoice/create" method="post" <label>Amount</label> <input type="text" name="amount">
+<form action="/router/invoices/create" method="post" <label>Amount</label> <input type="text" name="amount">

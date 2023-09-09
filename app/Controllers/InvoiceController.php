@@ -2,17 +2,20 @@
 
 namespace app\Controllers;
 
+
+use app\View;
+
 class InvoiceController
 {
-    public function index()
+    public function index():View|static
     {
-        return '';
+        return View::make('invoices/index_view');
     }
 
-    public function create()
+    public function create():View|static
     {
         var_dump($_POST);
-        return '';
+        return View::make('invoices/create_view');
 
     }
 
