@@ -1,7 +1,7 @@
 <?php
 require "bootstrap.php";
-define('STORAGE_PATH', __DIR__ . '/' . 'app'.'/'. 'storage');
-define('VIEW_PATH', __DIR__ . '/app/views' );
+define('STORAGE_PATH', __DIR__ . '/' . 'app' . '/' . 'storage');
+define('VIEW_PATH', __DIR__ . '/app/views');
 
 
 try {
@@ -16,12 +16,13 @@ try {
     $router->post('/router/upload', [\app\Controllers\HomeController::class, 'upload']);
 
     echo $router->resolve($_SERVER['REQUEST_URI'], strtolower($_SERVER['REQUEST_METHOD']));
+
 } catch (\app\Exceptions\RouteNotFoundException $e) {
 
     //header('HTTP/1.1 404 Not Found');
     http_response_code(404);
 
-  echo \app\View::make('errors/error404_view');
+    echo \app\View::make('errors/error404_view');
 }
 
 

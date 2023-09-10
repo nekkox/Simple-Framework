@@ -19,22 +19,40 @@ class HomeController
         //PDO
         try {
             $db = new \PDO('mysql:host=127.0.0.1;dbname=my_db', 'root', '');
-
-            $email = 'vegobeco@mail.com';
-            $name = 'Beco';
-            $age = 20;
-            $query = 'INSERT INTO users (name, age, email) VALUES (:email, :age, :name)';
-            $stmt = $db->prepare($query);
-            $stmt->execute(['email' => $email, 'name' => $name, 'age' => $age]);
-
-            $id = (int)$db->lastInsertId();
-
-            $user = $db->query('SELECT * FROM users WHERE id = ' . $id)->fetch();
-            var_dump($user);
-
         } catch (\PDOException $e) {
-            echo $e->getMessage();
+            throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
+
+        $email = 'vegobeco12@mail.com';
+        $name = 'Becox';
+        $age = 20;
+        $amount = 200;
+
+        $db->beginTransaction();
+
+        $query = 'INSERT INTO users (name, age, email) VALUES (:name, :age, :email )';
+        $newUserStmt = $db->prepare($query);
+        //$stmt->execute(['email' => $email, 'name' => $name, 'age' => $age]);
+        $newInvoiceStmt = $db->prepare('INSERT INTO invoices (amount, user_id) VALUES (:amount, :user_id)');
+
+        $newUserStmt->execute(['name' => $name, 'age' => $age, 'email' => $email]);
+
+        $userId = (int)$db->lastInsertId();
+
+        $newInvoiceStmt->execute(['amount' => $amount, 'user_id' => $userId]);
+
+        $db->commit();
+
+        $fetchStmt = $db->prepare(
+            'SELECT invoices.id AS invoice_id, amount, user_id, name
+                        FROM invoices
+                        INNER JOIN users ON users.id = user_id
+                        WHERE email = :email'
+        );
+
+        $fetchStmt->execute(['email' => $email]);
+        var_dump($fetchStmt->fetch(\PDO::FETCH_ASSOC));
+
         return (string)View::make('index_view', ["foo" => "bar"]);
 
     }
