@@ -5,6 +5,7 @@ namespace App\Controllers;
 use App\Exceptions\UploadingFileException;
 use App\View;
 use App\App;
+use PDO;
 
 class HomeController
 {

@@ -8,25 +8,18 @@ class App
 {
     protected Router $router;
     protected array $request;
-    private static \PDO $db;
+    private static DB $db;
+    protected array $config;
 
     /**
      * @param Router $router
      */
-    public function __construct(Router $router, array $request)
+    public function __construct(Router $router, array $request, array $config)
     {
-        try {
-            static::$db = new \PDO(
-                'mysql:host=' . $_ENV['DB_HOST'] . ';dbname=' . $_ENV['DB_DATABASE'],
-                $_ENV['DB_USER'],
-                $_ENV['DB_PASS']
-            );
-        } catch (\PDOException $e) {
-            throw new \PDOException($e->getMessage(), (int)$e->getCode());
-        }
+        static::$db = new DB($config);
     }
 
-    public static function db(): \PDO{
+    public static function db(): DB{
         return static::$db;
     }
 
