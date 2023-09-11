@@ -1,8 +1,8 @@
 <?php
 
-namespace app;
+namespace App;
 
-use app\Exceptions\ViewNotFoundException;
+use App\Exceptions\ViewNotFoundException;
 
 class View
 {

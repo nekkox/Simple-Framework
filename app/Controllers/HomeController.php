@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Controllers;
+namespace App\Controllers;
 
-use app\Exceptions\UploadingFileException;
-use app\View;
+use App\Exceptions\UploadingFileException;
+use App\View;
 
 class HomeController
 {
@@ -18,30 +18,36 @@ class HomeController
 
         //PDO
         try {
-            $db = new \PDO('mysql:host=127.0.0.1;dbname=my_db', 'root', '');
+            $db = new \PDO('mysql:host=' . $_ENV['DB_HOST'] . ';dbname=' . $_ENV['DB_DATABASE'], $_ENV['DB_USER'], $_ENV['DB_PASS']);
         } catch (\PDOException $e) {
             throw new \PDOException($e->getMessage(), (int)$e->getCode());
         }
 
-        $email = 'vegobeco12@mail.com';
+        $email = 'vegobeco16@mail.com';
         $name = 'Becox';
         $age = 20;
         $amount = 200;
 
-        $db->beginTransaction();
 
-        $query = 'INSERT INTO users (name, age, email) VALUES (:name, :age, :email )';
-        $newUserStmt = $db->prepare($query);
-        //$stmt->execute(['email' => $email, 'name' => $name, 'age' => $age]);
-        $newInvoiceStmt = $db->prepare('INSERT INTO invoices (amount, user_id) VALUES (:amount, :user_id)');
+        try {
+            $db->beginTransaction();
 
-        $newUserStmt->execute(['name' => $name, 'age' => $age, 'email' => $email]);
+            $newUserStmt = $db->prepare('INSERT INTO users (name, age, email) VALUES (:name, :age, :email )');//$stmt->execute(['email' => $email, 'name' => $name, 'age' => $age]);
+            $newInvoiceStmt = $db->prepare('INSERT INTO invoices (amount, user_id) VALUES (:amount, :user_id)');
+            $newUserStmt->execute(['name' => $name, 'age' => $age, 'email' => $email]);
+            $userId = (int)$db->lastInsertId();
+            $newInvoiceStmt->execute(['amount' => $amount, 'user_id' => $userId]);
 
-        $userId = (int)$db->lastInsertId();
+            $db->commit();
 
-        $newInvoiceStmt->execute(['amount' => $amount, 'user_id' => $userId]);
-
-        $db->commit();
+            // If any exception is thrown within the try block (e.g., a database error), the code in the catch block is executed.
+            // In this case, it outputs the error message and rolls back the transaction if it's still in progress.
+        } catch (\Throwable $e) {
+            echo $e->getMessage();
+            if($db->inTransaction()){
+                $db->rollBack();
+            }
+        }
 
         $fetchStmt = $db->prepare(
             'SELECT invoices.id AS invoice_id, amount, user_id, name
@@ -59,7 +65,6 @@ class HomeController
 
     public function upload()
     {
-
         if (empty($_FILES)) {
             throw new UploadingFileException();
         }

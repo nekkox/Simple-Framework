@@ -1,5 +1,5 @@
 <?php
-namespace app\Exceptions;
+namespace App\Exceptions;
 class UploadingFileException extends \Exception
 {
     protected $message = 'file cant be uploaded';

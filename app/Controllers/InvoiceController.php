@@ -1,9 +1,9 @@
 <?php
 
-namespace app\Controllers;
+namespace App\Controllers;
 
 
-use app\View;
+use App\View;
 
 class InvoiceController
 {
