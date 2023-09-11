@@ -3,27 +3,29 @@
 namespace App;
 
 use App\Exceptions\RouteNotFoundException;
+use App\Router;
 
 class App
 {
-    protected Router $router;
+    private Router $router;
     protected array $request;
     private static DB $db;
-    protected array $config;
+    protected Config $config;
 
-    /**
-     * @param Router $router
-     */
-    public function __construct(Router $router, array $request, array $config)
+
+    public function __construct(Router $router, array $request, Config $config)
     {
-        static::$db = new DB($config);
+        $this->router = $router;
+        $this->request = $request;
+        $this->config = $config;
+        static::$db = new DB($config->db ?? []);
     }
 
     public static function db(): DB{
         return static::$db;
     }
 
-    public function run()
+    public function run():void
     {
         try {
            echo $this->router->resolve(

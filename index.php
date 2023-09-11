@@ -4,6 +4,7 @@ define('STORAGE_PATH', __DIR__ . '/' . 'app' . '/' . 'storage');
 define('VIEW_PATH', __DIR__ . '/app/views');
 
 use App\App;
+use App\Config;
 use App\View;
 use App\Router;
 use App\Controllers\HomeController;
@@ -22,14 +23,7 @@ use App\Controllers\InvoiceController;
 (new App(
     $router,
     ['uri' => $_SERVER['REQUEST_URI'], 'method' => $_SERVER['REQUEST_METHOD']],
-    [
-        'host'  => $_ENV['DB_HOST'],
-        'user'  => $_ENV['DB_USER'],
-        'pass'  => $_ENV['DB_PASS'],
-        'database'  => $_ENV['DB_DATABASE'],
-        'driver'  => $_ENV['DB_DRIVER'] ?? 'mysql',
-    ]
-
+    new Config($_ENV)
 ))->run();
 
 
