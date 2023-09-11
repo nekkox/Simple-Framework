@@ -4,9 +4,10 @@
 </form>
 
 <?php
-echo ($this->params['foo']);
+//echo ($this->params['foo']);
 echo '<br>';
-echo $this->foo;
+//echo $this->foo;
 echo '<br>';
-echo $foo;
+//echo $foo;
+var_dump($this->params);
 ?>
