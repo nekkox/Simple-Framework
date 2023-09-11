@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Exceptions\UploadingFileException;
 use App\View;
+use App\App;
 
 class HomeController
 {
@@ -17,12 +18,7 @@ class HomeController
         //returns object View
 
         //PDO
-        try {
-            $db = new \PDO('mysql:host=' . $_ENV['DB_HOST'] . ';dbname=' . $_ENV['DB_DATABASE'], $_ENV['DB_USER'], $_ENV['DB_PASS']);
-        } catch (\PDOException $e) {
-            throw new \PDOException($e->getMessage(), (int)$e->getCode());
-        }
-
+        $db = App::db();
         $email = 'vegobeco16@mail.com';
         $name = 'Becox';
         $age = 20;
