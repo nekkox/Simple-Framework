@@ -34,7 +34,7 @@ class SignUp extends Model
             $this->db->commit();
 
         } catch (\Throwable $e) {
-           // echo $e->getMessage();
+            echo $e->getMessage();
             if ($this->db->inTransaction()) {
                 $this->db->rollBack();
             }

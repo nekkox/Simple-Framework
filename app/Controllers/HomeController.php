@@ -22,12 +22,12 @@ class HomeController
 
         //PDO
         $db = App::db();
-        $email = 'vegobeco51@mail.com';
+        $email = 'vegobeco52@mail.com';
         $name = 'Becox';
         $age = 20;
         $amount = 200;
 
-        try {
+
             $userModel = new User();
             $invoiceModel = new Invoice();
             $invoiceId = (new SignUp($userModel, $invoiceModel))->register(
@@ -42,13 +42,7 @@ class HomeController
             );
 
             return View::make('index_view', ['invoice' => $invoiceModel->find($invoiceId)]);
-        }catch (\Exception $e){
-           // echo $e->getMessage();
-
-            return View::make('index_view', ["error" =>  "Something went wrong"]);
         }
-
-    }
 
     public function upload()
     {
