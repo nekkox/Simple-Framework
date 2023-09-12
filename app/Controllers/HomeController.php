@@ -2,13 +2,12 @@
 
 namespace App\Controllers;
 
+use App\App;
 use App\Exceptions\UploadingFileException;
 use App\Models\Invoice;
+use App\Models\SignUp;
 use App\Models\User;
-use App\SignUp;
 use App\View;
-use App\App;
-use PDO;
 
 class HomeController
 {
@@ -23,26 +22,31 @@ class HomeController
 
         //PDO
         $db = App::db();
-        $email = 'vegobeco29@mail.com';
+        $email = 'vegobeco51@mail.com';
         $name = 'Becox';
         $age = 20;
         $amount = 200;
 
+        try {
+            $userModel = new User();
+            $invoiceModel = new Invoice();
+            $invoiceId = (new SignUp($userModel, $invoiceModel))->register(
+                [
+                    'email' => $email,
+                    'name' => $name,
+                    'age' => $age,
+                ],
+                [
+                    'amount' => $amount,
+                ]
+            );
 
-        $userModel = new User();
-        $invoiceModel = new Invoice();
-        $invoiceId = (new SignUp($userModel, $invoiceModel))->register(
-            [
-                'email' => $email,
-                'name' => $name,
-                'age' => $age,
-            ],
-            [
-                'amount' => $amount,
-            ]
-        );
+            return View::make('index_view', ['invoice' => $invoiceModel->find($invoiceId)]);
+        }catch (\Exception $e){
+           // echo $e->getMessage();
 
-        return View::make('index_view', ['invoice' => $invoiceModel->find($invoiceId)]);
+            return View::make('index_view', ["error" =>  "Something went wrong"]);
+        }
 
     }
 

@@ -1,9 +1,8 @@
 <?php
 
-namespace App;
+namespace App\Models;
 
-use App\Models\Invoice;
-use App\Models\User;
+use App\Model;
 
 class SignUp extends Model
 {
@@ -35,7 +34,7 @@ class SignUp extends Model
             $this->db->commit();
 
         } catch (\Throwable $e) {
-            echo $e->getMessage();
+           // echo $e->getMessage();
             if ($this->db->inTransaction()) {
                 $this->db->rollBack();
             }
