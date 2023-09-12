@@ -32,7 +32,7 @@ class Router
     public function resolve(string $requestUri, string $requestMethod)
     {
         $route = explode('?', $requestUri)[0];
-        $action = $this->routes[$requestMethod][$route] ?? null;
+        $action = $this->routes[$requestMethod][$route] ?? null; //check if the route exists in the routes array
 
         if (!$action) {
             throw new RouteNotFoundException();
@@ -42,9 +42,11 @@ class Router
             return call_user_func($action);
         }
         if (is_array($action)) {
+
             [$class, $method] = $action; //Rozbicie tablicy $action na 2 elementy - class & method
 
             if (class_exists($class)) {
+                var_dump($class);
                 $class = new $class();
 
                 if (method_exists($class, $method)) {

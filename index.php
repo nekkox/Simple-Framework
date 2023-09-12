@@ -20,6 +20,8 @@ use App\Controllers\InvoiceController;
     $router->post('/router/invoices/create', [\App\Controllers\InvoiceController::class, 'store']);
     $router->post('/router/upload', [\App\Controllers\HomeController::class, 'upload']);
 
+    var_dump($router->routes());
+
 (new App(
     $router,
     ['uri' => $_SERVER['REQUEST_URI'], 'method' => $_SERVER['REQUEST_METHOD']],
