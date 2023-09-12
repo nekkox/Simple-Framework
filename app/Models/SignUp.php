@@ -29,8 +29,6 @@ class SignUp extends Model
             $userId = $this->userModel->create($userInfo['name'], $userInfo['email'], $userInfo['age']);
             $invoiceId = $this->invoiceModel->create($invoiceInfo['amount'], $userId);
 
-            echo "XXX";
-            var_dump($invoiceId);
             $this->db->commit();
 
         } catch (\Throwable $e) {
