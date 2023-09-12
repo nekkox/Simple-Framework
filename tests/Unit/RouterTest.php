@@ -37,7 +37,8 @@ class RouterTest extends TestCase
         $this->assertInstanceOf('Closure', $router->routes()['get']['/users']);
     }
 
-    public function test_that_it_registers_a_route_with_callable_function():void{
+    public function test_that_it_registers_a_route_with_callable_function():void
+    {
         $router = new Router();
         $router->register('get', '/users', function () {
             return 'Hello World';
@@ -47,5 +48,36 @@ class RouterTest extends TestCase
     }
 
 
+    public function test_it_registers_get_route():void
+    {
+        //given that we have a router object
+        $router = new Router();
 
+        //when we call a get method
+        $router->get('/users', ['Users', 'index']);
+        //then we assert get array with route and method is created
+        $expected = ['get' => ['/users' => ['Users', 'index']]];
+
+        $this->assertEquals($expected, $router->routes());
+    }
+
+    public function test_it_registers_post_route():void
+    {
+        //given that we have a router object
+        $router = new Router();
+
+        //when we call a get method
+        $router->post('/users', ['Users', 'store']);
+        //then we assert get array with route and method is created
+        $expected = ['post' => ['/users' => ['Users', 'store']]];
+
+        $this->assertEquals($expected, $router->routes());
+    }
+
+    public function test_that_there_are_no_routes_when_router_is_created(): void
+    {
+        $router = new Router();
+        $this->assertEmpty($router->routes());
+
+    }
 }

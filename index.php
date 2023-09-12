@@ -19,10 +19,10 @@ use App\Controllers\InvoiceController;
     $router->get('/router/invoices/create', [\App\Controllers\InvoiceController::class, 'create']);
     $router->post('/router/invoices/create', [\App\Controllers\InvoiceController::class, 'store']);
     $router->post('/router/upload', [\App\Controllers\HomeController::class, 'upload']);
-    $router->get('/router/users', function (){echo "Hello Wrold";});
+    $router->get('/router/users', function (){echo "Hello World";});
 
-    $f = $router->routes()['get']['/router/users'];
-    $f();
+
+    var_dump(array_keys($router->routes()['get']));
 
 (new App(
     $router,
