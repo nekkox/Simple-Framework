@@ -36,16 +36,18 @@ class Router
         if (!$action) {
             throw new RouteNotFoundException();
         }
+        //when the action is a function;
         if (is_callable($action)) {
 
             return call_user_func($action);
         }
+
+        //when the action is array
         if (is_array($action)) {
 
             [$class, $method] = $action; //Rozbicie tablicy $action na 2 elementy - class & method
 
             if (class_exists($class)) {
-                var_dump($class);
                 $class = new $class();
 
                 if (method_exists($class, $method)) {
@@ -53,6 +55,7 @@ class Router
                 }
             }
         }
+        //if the action is not a function or array throw an exception
         throw new RouteNotFoundException();
     }
 }

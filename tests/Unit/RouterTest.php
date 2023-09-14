@@ -2,13 +2,16 @@
 
 namespace Tests\Unit;
 
+use App\Exceptions\RouteNotFoundException;
 use App\Router;
 use PHPUnit\Framework\TestCase;
+use Tests\Dataproviders\RouterDataProvider;
 
 class RouterTest extends TestCase
 {
     private Router $router;
-    //setUp method is called before each test is ran
+
+//setUp method is called before each test is ran
     protected function setUp(): void
     {
 
@@ -46,9 +49,9 @@ class RouterTest extends TestCase
         $this->assertInstanceOf('Closure', $this->router->routes()['get']['/users']);
     }
 
-    public function test_that_it_registers_a_route_with_callable_function():void
+    public function test_that_it_registers_a_route_with_callable_function(): void
     {
-       // $router = new Router();
+        // $router = new Router();
         $this->router->register('get', '/users', function () {
             return 'Hello World';
         });
@@ -57,10 +60,10 @@ class RouterTest extends TestCase
     }
 
 
-    public function test_it_registers_get_route():void
+    public function test_it_registers_get_route(): void
     {
         //given that we have a router object
-       // $router = new Router();
+        // $router = new Router();
 
         //when we call a get method
         $this->router->get('/users', ['Users', 'index']);
@@ -70,7 +73,7 @@ class RouterTest extends TestCase
         $this->assertEquals($expected, $this->router->routes());
     }
 
-    public function test_it_registers_post_route():void
+    public function test_it_registers_post_route(): void
     {
         //given that we have a router object
         //$router = new Router();
@@ -89,4 +92,54 @@ class RouterTest extends TestCase
         $this->assertEmpty($this->router->routes());
 
     }
+
+    //tests for resolve method
+    //#[DataProvider('routeNotFoundCases')]
+
+    /**
+     * @dataProvider \Tests\Dataproviders\RouterDataProvider::routeNotFoundCasesClass
+     */
+    public function test_it_throws_route_not_found_exception (
+        string $requestUri,
+        string $requestMethod
+    ): void
+    {
+        //anonymous class to simulate a controller
+        $users = new class() {
+            public function delete(): bool
+            {
+                return true;
+            }
+        };
+        $router = new Router();
+        //given
+        $router->post('/users', [$users::class, 'delete']);
+        $router->get('/users', [$users::class, 'store']);
+        $router->post('/notes', [$users::class, 'delete']);
+        $router->get('/users', ['Forms', 'index']);
+       // $router->get('/users', ['Users', 'index']);
+        // $this->router->post('/users', [$users::class, 'pp']);
+
+
+        $this->expectException(RouteNotFoundException::class);
+        //we are going to provide $requestUri and $requestMethod with data provider
+        $router->resolve($requestUri, $requestMethod);
+    }
+    //for "method_exists" we need to simulate class, we can do that with
+    //anonymous class (we can simulate controller)
+
+
+    //DataProvider for test_it_throws_route_not_found_exception
+    public static function routeNotFoundCases(): array
+    {
+        return [
+            ['/users', 'put'], //route is found but request method is not found
+            ['/invoices', 'post'],
+            ['/users', 'get'], // fails because Users is not a class
+            ['/notes', 'get'],
+            // ['/notes','post'],
+            ['/forms', 'get'], //still fails because Forms is not a class
+        ];
+    }
+
 }

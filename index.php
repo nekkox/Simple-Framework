@@ -10,7 +10,10 @@ use App\Router;
 use App\Controllers\HomeController;
 use App\Controllers\InvoiceController;
 
-    $router = new Router();//$router->register('/router/', function() {echo "Home";});
+
+
+    $router = new Router();
+    //$router->register('/router/', function() {echo "Home";});
     //$router->register('/router/invoices', function(){ echo "Invoice";});
     //Creating routes
     $router->get('/router/', [\App\Controllers\HomeController::class, 'index']);
@@ -23,6 +26,7 @@ use App\Controllers\InvoiceController;
 
 
     var_dump(array_keys($router->routes()['get']));
+
 
 (new App(
     $router,

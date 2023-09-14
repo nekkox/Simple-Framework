@@ -1,3 +1,6 @@
 .htaccess
 .idea/
 .env
+vendor/
+composer.json
+composer.lock
