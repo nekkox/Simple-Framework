@@ -49,7 +49,7 @@ class RouterTest extends TestCase
         $this->assertInstanceOf('Closure', $this->router->routes()['get']['/users']);
     }
 
-    public function test_that_it_registers_a_route_with_callable_function(): void
+    /*public function test_that_it_registers_a_route_with_callable_function(): void
     {
         // $router = new Router();
         $this->router->register('get', '/users', function () {
@@ -57,6 +57,25 @@ class RouterTest extends TestCase
         });
         $closure = $this->router->routes()['get']['/users'];
         $this->assertSame('Hello World', $closure());
+    }*/
+
+    public function test_it_resolves_route_from_a_closure()
+    {
+        $this->router->get('/users', fn () => [1,2,3]);
+        $this->assertEquals([1,2,3],$this->router->resolve('/users','get'));
+    }
+
+    public function test_it_reslves_route(){
+        $users = new class() {
+            public function index(): array
+            {
+                return [1,2,3];
+            }
+        };
+
+        $this->router->get('/users', [$users::class, 'index']);
+        $this->assertEquals([1,2,3], $this->router->resolve('/users','get'));
+
     }
 
 
@@ -141,5 +160,7 @@ class RouterTest extends TestCase
             ['/forms', 'get'], //still fails because Forms is not a class
         ];
     }
+
+
 
 }
