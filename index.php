@@ -11,6 +11,11 @@ use App\Controllers\HomeController;
 use App\Controllers\InvoiceController;
 
 
+$xml = new \App\Xml\Transaction(new \App\Xml\DBLogger('data'),new \App\Xml\HttpClient('xxx'),['userId' => 1,'items' =>
+    ['item'=>['id' => 1, 'quantity' => 99]]]);
+var_dump($xml->getData());
+$xxx = $xml->prepareXMLRequest();
+var_dump($xxx);
 
     $router = new Router();
     //$router->register('/router/', function() {echo "Home";});
