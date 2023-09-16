@@ -3,10 +3,14 @@
 namespace App\Controllers;
 
 use App\App;
+use App\Container;
+use App\Exceptions\NotFoundException;
 use App\Exceptions\UploadingFileException;
 use App\Models\Invoice;
 use App\Models\SignUp;
 use App\Models\User;
+use App\Services\InvoiceService;
+use App\Services\SalesTaxService;
 use App\View;
 
 class HomeController
@@ -27,6 +31,14 @@ class HomeController
         $age = 20;
         $amount = 200;
 
+
+        App::$container->get(InvoiceService::class)->process(['xxxx'], 44);
+
+
+
+
+        echo '<br>';
+        echo '<hr>';
 
             $userModel = new User();
             $invoiceModel = new Invoice();

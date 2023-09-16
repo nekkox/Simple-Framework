@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'vendor_name/router',
-        'pretty_version' => 'dev-7.Models_&_Refactoring',
-        'version' => 'dev-7.Models_&_Refactoring',
-        'reference' => '086bdf5cba58e05a30f14754147b37135b461845',
+        'pretty_version' => 'dev-5.PDO',
+        'version' => 'dev-5.PDO',
+        'reference' => 'f216522bed3740fb694b9ef2b5b96997a8f7794b',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -117,6 +117,15 @@
             'install_path' => __DIR__ . '/../phpunit/phpunit',
             'aliases' => array(),
             'dev_requirement' => true,
+        ),
+        'psr/container' => array(
+            'pretty_version' => '2.0.2',
+            'version' => '2.0.2.0',
+            'reference' => 'c71ecc56dfe541dbd90c5360474fbc405f8d5963',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../psr/container',
+            'aliases' => array(),
+            'dev_requirement' => false,
         ),
         'sebastian/cli-parser' => array(
             'pretty_version' => '2.0.0',
@@ -290,9 +299,9 @@
             'dev_requirement' => true,
         ),
         'vendor_name/router' => array(
-            'pretty_version' => 'dev-7.Models_&_Refactoring',
-            'version' => 'dev-7.Models_&_Refactoring',
-            'reference' => '086bdf5cba58e05a30f14754147b37135b461845',
+            'pretty_version' => 'dev-5.PDO',
+            'version' => 'dev-5.PDO',
+            'reference' => 'f216522bed3740fb694b9ef2b5b96997a8f7794b',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

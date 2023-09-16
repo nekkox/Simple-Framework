@@ -11,7 +11,8 @@
   ],
   "require": {
     "vlucas/phpdotenv": "^5.5",
-    "ext-simplexml": "*"
+    "ext-simplexml": "*",
+    "psr/container": "^2.0"
   },
   "autoload": {
     "psr-4": {

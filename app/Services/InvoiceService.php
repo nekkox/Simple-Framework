@@ -12,7 +12,6 @@ class InvoiceService
         protected PaymentGatewayService $paymentGatewayService
     )
     {
-
     }
 
     public function process(array $customer, float $amount): bool
@@ -33,6 +32,8 @@ class InvoiceService
         // 3. Send receipt email
 
         $this->emailService->send($customer, 'receipt');
+
+        echo "The invoice Service is working";
 
         return true;
     }
