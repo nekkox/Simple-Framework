@@ -1,14 +1,36 @@
 <?php
 
 namespace App;
+use App\Attributes\Route;
+use App\Contracts\RouteInterface;
+use App\Controllers\PostController;
 use App\Exceptions\RouteNotFoundException;
 
 class Router
 {
+    private array $routes= [];
+
     public function __construct(private Container $container)
     {
     }
-    private array $routes= [];
+
+    public function registerRoutesFromControllerAttributes(array $controllers){
+
+        foreach($controllers as $controller){
+            $reflectionController = new \ReflectionClass($controller);
+
+            foreach($reflectionController->getMethods() as $method){
+                $attributes = $method->getAttributes(Route::class, \ReflectionAttribute::IS_INSTANCEOF);
+
+                foreach ($attributes as $attribute){
+                    $route = $attribute->newInstance();
+
+                    $this->register($route->method, $route->route,[$controller, $method->getName()]);
+                }
+            }
+        }
+    }
+
 
     public function register(string $requestMethod, string $route, callable|array $action): self
     {
