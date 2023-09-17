@@ -32,8 +32,10 @@ class HomeController
         $amount = 200;
 
 
-        App::$container->get(InvoiceService::class)->process(['xxxx'], 44);
+        //App::$container->get(InvoiceService::class)->process(['xxxx'], 44);
 
+        //new version of the Service Container with Autowiring
+        (new Container())->get(InvoiceService::class) ?-> process([], 44);
 
 
 

@@ -33,7 +33,7 @@ class InvoiceService
 
         $this->emailService->send($customer, 'receipt');
 
-        echo "The invoice Service is working";
+        echo "Invoice has been processed";
 
         return true;
     }

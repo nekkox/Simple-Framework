@@ -26,7 +26,7 @@ class App
         $this->request = $request;
         $this->config = $config;
         static::$db = new DB($config->db ?? []);
-        static::$container = new Container();
+        /*static::$container = new Container();
 
         static::$container->set(SalesTaxService::class, fn() => new SalesTaxService());
         static::$container->set(EmailService::class, fn() => new EmailService());
@@ -39,8 +39,7 @@ class App
                 $container->get(PaymentGatewayService::class),
             );
         }
-        );
-
+        );*/
     }
 
     public static function db(): DB
