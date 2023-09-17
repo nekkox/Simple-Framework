@@ -15,25 +15,32 @@ class Container implements ContainerInterface
 
     //$concrete argument is a factory that is responsible for creating the object of whatever class
     // it is you want to get from the container
-    public function set(string $id, callable $concrete)
+    public function set(string $id, callable|string $concrete)
     {
         $this->entries[$id] = $concrete;
 
+    }
+    public function getEntries(){
+        return $this->entries;
     }
 
     public function get(string $id)
     {
         if ($this->has($id)) {
             $entry = $this->entries[$id];
-            //passing container instance as an argument callback, so the callback function has access to container instance
-            //so you can get its own dependencies if needed within that callback;
-            return $entry($this);
+
+            if (is_callable($entry)) {
+                //passing container instance as an argument callback, so the callback function has access to container instance
+                //so you can get its own dependencies if needed within that callback;
+                return $entry($this);
+            }
+            $id = $entry;
         }
+
         //if there is no binding we call resolve method that will do the autowiring and try to resolve the class on it own
         //We are just giving thr container another chance to resolve the requested class and it will return the value
         //that we get from the resolved method
         return $this->resolve($id);
-
     }
 
     public function has(string $id): bool
@@ -45,7 +52,6 @@ class Container implements ContainerInterface
     {
         //1. Inspect the class that we are trying to get from the container
         $reflectionClass = new ReflectionClass($id);
-
         if (!$reflectionClass->isInstantiable()) {
             throw new ContainerException('Class ' . $id . ' is not instantiable');
         }
@@ -84,4 +90,6 @@ class Container implements ContainerInterface
         );
         return $reflectionClass->newInstanceArgs($dependencies);
     }
+
+
 }

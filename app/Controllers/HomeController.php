@@ -15,6 +15,9 @@ use App\View;
 
 class HomeController
 {
+    public function __construct(private InvoiceService $invoiceService)
+    {
+    }
     public function index(): View|string
     {
         //2 different ways to render a view:
@@ -35,8 +38,8 @@ class HomeController
         //App::$container->get(InvoiceService::class)->process(['xxxx'], 44);
 
         //new version of the Service Container with Autowiring
-        (new Container())->get(InvoiceService::class) ?-> process([], 44);
-
+       // (new Container())->get(InvoiceService::class) ?-> process([], 44);
+        $this->invoiceService->process([], 25);
 
 
         echo '<br>';

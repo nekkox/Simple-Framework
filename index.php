@@ -7,11 +7,14 @@ use App\App;
 use App\Config;
 use App\View;
 use App\Router;
+use App\Container;
 use App\Controllers\HomeController;
 use App\Controllers\InvoiceController;
 
 
-    $router = new Router();
+
+    $container = new \App\Container();
+    $router = new Router($container);
     //$router->register('/router/', function() {echo "Home";});
     //$router->register('/router/invoices', function(){ echo "Invoice";});
     //Creating routes
@@ -25,6 +28,7 @@ use App\Controllers\InvoiceController;
 
 
 (new App(
+    $container,
     $router,
     ['uri' => $_SERVER['REQUEST_URI'], 'method' => $_SERVER['REQUEST_METHOD']],
     new Config($_ENV)

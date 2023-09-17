@@ -9,7 +9,7 @@ class InvoiceService
     public function __construct(
         protected SalesTaxService       $salesTaxService,
         protected EmailService          $emailService,
-        protected PaymentGatewayService $paymentGatewayService
+        protected PaymentGatewayInterface $paymentGatewayService
     )
     {
     }
@@ -18,7 +18,7 @@ class InvoiceService
     {
         //dependieces
         // $salesTaxService = new SalesTaxService();
-        //  $gatewayService = new PaymentGatewayService();
+        //  $gatewayService = new StripePayment();
         // $emailService = new EmailService();
 
         // 1. Calculate sales tax
