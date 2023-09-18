@@ -19,7 +19,9 @@ $router->registerRoutesFromControllerAttributes(
     [
         HomeController::class,
         InvoiceController::class,
-        \App\Controllers\PostController::class
+        \App\Controllers\PostController::class,
+        \App\Controllers\UserController::class,
+
     ]
 );
 
@@ -34,10 +36,12 @@ $router->get('/router/invoices', [\App\Controllers\InvoiceController::class, 'in
 $router->get('/router/invoices/create', [\App\Controllers\InvoiceController::class, 'create']);
 $router->post('/router/invoices/create', [\App\Controllers\InvoiceController::class, 'store']);
 $router->post('/router/upload', [\App\Controllers\HomeController::class, 'upload']);
-$router->get('/router/users', function () {
-    echo "Hello World";
-});
+//$router->get('/router/users', function () {
+    //echo "Hello World";
+//});
 //$router->get('/router/posts',[\App\Controllers\PostController::class, 'index']);
+
+var_dump($router->routes());
 
 (new App(
     $container,
