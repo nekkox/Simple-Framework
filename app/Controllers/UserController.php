@@ -6,6 +6,9 @@ use App\Attributes\Get;
 use App\Attributes\Post;
 use App\Attributes\Route;
 use App\View;
+use Symfony\Component\Mailer\Mailer;
+use Symfony\Component\Mailer\Transport;
+use Symfony\Component\Mime\Email;
 
 class UserController
 {
@@ -24,6 +27,18 @@ class UserController
 Hello $firstname,
 Thank you for registering!
 BODY;
+
+        $email = (new Email())
+            ->from('support@example.com')
+            ->to($email)
+            ->subject('Welcome!')
+            ->text($text);
+
+        $dsn = 'smtp://mailhog:1025';
+        $transporter = Transport::fromDsn($dsn);
+        $mailer = new Mailer($transporter);
+        $mailer->send($email);
+
 
     }
 

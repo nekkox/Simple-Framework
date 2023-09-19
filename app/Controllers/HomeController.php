@@ -32,7 +32,7 @@ class HomeController
 
         //PDO
         $db = App::db();
-        $email = 'vegobeco52@mail.com';
+        $email = 'vegobeco55@mail.com';
         $name = 'Becox';
         $age = 20;
         $amount = 200;
@@ -87,14 +87,7 @@ class HomeController
         readfile(STORAGE_PATH . '/' . 'modern-x86-assembly-language-programming-3rd.jpg');
     }
 
-    public function attributes(){
-        $reflection = new \ReflectionClass(PostController::class);
-        $method = $reflection->getMethod('index');
-        $attribute = $method->getAttributes();
-        foreach ($attribute as $a){
-            var_dump($a->getName());
-        }
-    }
+
 
     #[Get('/router/hellox')]
     public function show() {

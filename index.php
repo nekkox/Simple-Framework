@@ -29,8 +29,8 @@ var_dump($router->routes());
 //$router->register('/router/', function() {echo "Home";});
 //$router->register('/router/invoices', function(){ echo "Invoice";});
 //Creating routes
-//   $router->get('/router/', [\App\Controllers\HomeController::class, 'index']);
-$router->get('/router/', [HomeController::class, 'attributes']);
+$router->get('/router/', [\App\Controllers\HomeController::class, 'index']);
+//$router->get('/router/', [HomeController::class, 'attributes']);
 $router->get('/router/download', [\App\Controllers\HomeController::class, 'download']);
 $router->get('/router/invoices', [\App\Controllers\InvoiceController::class, 'index']);
 $router->get('/router/invoices/create', [\App\Controllers\InvoiceController::class, 'create']);
@@ -41,7 +41,7 @@ $router->post('/router/upload', [\App\Controllers\HomeController::class, 'upload
 //});
 //$router->get('/router/posts',[\App\Controllers\PostController::class, 'index']);
 
-var_dump($router->routes());
+
 
 (new App(
     $container,

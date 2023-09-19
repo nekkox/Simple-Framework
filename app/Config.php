@@ -4,10 +4,13 @@ namespace App;
 
 /**
  * @property-read ?array $db
+ *
  */
+
+
 class Config
 {
-    protected $config = [];
+    protected array $config = [];
 
     /**
      * @param array $_ENV
