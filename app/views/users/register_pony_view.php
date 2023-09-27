@@ -10,7 +10,7 @@
 </head>
 
 <body><div class="register-container">
-    <form action="/users" method="post">
+    <form action="/pony" method="post">
         <div>
             <label>
                 Name:<br>

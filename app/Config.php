@@ -4,17 +4,16 @@ namespace App;
 
 /**
  * @property-read ?array $db
+ * @property-read ?array $mailer
  *
  */
 
 
 class Config
 {
-    protected array $config = [];
 
-    /**
-     * @param array $_ENV
-     */
+    public array $config = [];
+
     public function __construct(array $env)
     {
         $this->config = [
@@ -26,6 +25,9 @@ class Config
                 'database'  => $env['DB_DATABASE'],
                 'driver'  => $env['DB_DRIVER'] ?? 'mysql',
             ],
+            'mailer' => [
+                'dsn' => $env['MAILER_DSN'] ?? 'smtp://mailhog:1025',
+            ]
         ];
     }
 

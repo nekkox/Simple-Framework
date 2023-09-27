@@ -7,7 +7,7 @@ use App\View;
 
 class PostController
 {
-#[Route('/router/posts')]
+#[Route('/posts')]
     public function index() {
         echo 'Hello from Posts'.'<br>';
         return View::make('post_view',['name' => 'vego']);

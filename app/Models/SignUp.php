@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Exceptions\DuplucateKeyException;
 use App\Model;
 
 class SignUp extends Model
@@ -32,7 +33,8 @@ class SignUp extends Model
             $this->db->commit();
 
         } catch (\Throwable $e) {
-            echo $e->getMessage();
+           // echo $e->getMessage();
+            echo "An error occurred. Please try again later.";
             if ($this->db->inTransaction()) {
                 $this->db->rollBack();
             }

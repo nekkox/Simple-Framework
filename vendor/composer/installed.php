@@ -3,7 +3,7 @@
         'name' => 'vendor_name/router',
         'pretty_version' => 'dev-5.PDO',
         'version' => 'dev-5.PDO',
-        'reference' => '4969f680da80a389f0a5bede63fe8f2d5a3f3842',
+        'reference' => 'da80804d37c930364b386032a63b44d81a8bd09a',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -430,7 +430,7 @@
         'vendor_name/router' => array(
             'pretty_version' => 'dev-5.PDO',
             'version' => 'dev-5.PDO',
-            'reference' => '4969f680da80a389f0a5bede63fe8f2d5a3f3842',
+            'reference' => 'da80804d37c930364b386032a63b44d81a8bd09a',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),

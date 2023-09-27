@@ -1,7 +1,7 @@
 <?php
 require "bootstrap.php";
 define('STORAGE_PATH', __DIR__ . '/' . 'app' . '/' . 'storage');
-define('VIEW_PATH', __DIR__ . '/app/views');
+define('VIEW_PATH', __DIR__ . '/../app/views');
 
 use App\App;
 use App\Config;

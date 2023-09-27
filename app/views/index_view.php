@@ -12,19 +12,22 @@
 <hr>
 <br>
 
-<form action="/router/upload" method="post" enctype="multipart/form-data">
-    <input type="file" name="receipt" />
+<form action="/upload" method="post" enctype="multipart/form-data">
+    <input type="file" name="receipt"/>
     <button type="submit">Upload</button>
 </form>
 
 <div>
-<?php if( empty($invoice)){
- echo '<h2>'. $error . '</h2>';} else {
-   echo 'INVOICE ID:' . $invoice['invoice_id'] . '<br />'.
-    'INVOICE AMOUNT:' . $invoice['amount'] . '<br />' .
-    'USER:'. $invoice['name']. '<br />';
-     }
-     ?>
+
+    <?php if (empty($invoice)) {
+        echo '<h2>' . $noInvoice . '</h2>';
+    } else {
+        echo '<hr>'.
+            'INVOICE ID:'.$invoice['invoice_id'] . '<br />' .
+            'INVOICE AMOUNT:' . $invoice['amount'] . '<br />' .
+            'USER:' . $invoice['name'] . '<br />';
+    }
+    ?>
 
 </div>
 <?php

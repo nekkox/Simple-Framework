@@ -7,6 +7,7 @@ use App\Attributes\Get;
 use App\Attributes\Route;
 use App\Container;
 use App\Enums\HttpMethod;
+use App\Exceptions\DuplucateKeyException;
 use App\Exceptions\NotFoundException;
 use App\Exceptions\UploadingFileException;
 use App\Models\Invoice;
@@ -32,7 +33,7 @@ class HomeController
 
         //PDO
         $db = App::db();
-        $email = 'vegobeco55@mail.com';
+        $email = 'vegobeco75@mail.com';
         $name = 'Becox';
         $age = 20;
         $amount = 200;
@@ -50,18 +51,32 @@ class HomeController
 
             $userModel = new User();
             $invoiceModel = new Invoice();
-            $invoiceId = (new SignUp($userModel, $invoiceModel))->register(
-                [
-                    'email' => $email,
-                    'name' => $name,
-                    'age' => $age,
-                ],
-                [
-                    'amount' => $amount,
-                ]
-            );
+            $invoiceId = null;
 
-            return View::make('index_view', ['invoice' => $invoiceModel->find($invoiceId)]);
+            try {
+                $invoiceId = (new SignUp($userModel, $invoiceModel))->register(
+                    [
+                        'email' => $email,
+                        'name' => $name,
+                        'age' => $age,
+                    ],
+                    [
+                        'amount' => $amount,
+                    ]
+                );
+            }
+            catch (\Exception $e){
+                //echo $e->getMessage();
+                error_log($e->getMessage(), 3, "../error.log");
+                echo "An error occurred. Please try again later.";
+
+            }
+            if($invoiceId) {
+                return View::make('index_view', ['invoice' => $invoiceModel->find($invoiceId)]);
+            } else{
+                return View::make('index_view', ['noInvoice' => 'Sorry but there is some Error']);
+
+            }
         }
 
     public function upload()
@@ -89,16 +104,16 @@ class HomeController
 
 
 
-    #[Get('/router/hellox')]
+    #[Get('/hellox')]
     public function show() {
         echo "Hello World";
     }
-    #[Post('/router/hello')]
+    #[Post('/hello')]
     public function store() {
         echo "Hello World";
     }
 
-    #[Put('/router/hello')]
+    #[Put('/hello')]
     public function up() {
         echo "Hello World";
     }

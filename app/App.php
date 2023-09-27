@@ -10,6 +10,7 @@ use App\Services\PaddlePayment;
 use App\Services\StripePayment;
 use App\Services\PaymentGatewayInterface;
 use App\Services\SalesTaxService;
+use Symfony\Component\Mailer\MailerInterface;
 
 class App
 {
@@ -22,8 +23,9 @@ class App
     public static $one;
 
 
-    public function __construct(protected Container $container,Router $router, array $request, Config $config)
-    {
+    public function __construct(
+        protected Container $container, Router $router, array $request, Config $config
+    ){
         $this->router = $router;
         $this->request = $request;
         $this->config = $config;
@@ -35,8 +37,11 @@ class App
         );*/
         // We want to be able to bind interface in the container to concrete StripePayment class implementation
         //without passing any closures
-        $this->container->set(PaymentGatewayInterface::class, PaddlePayment::class);
+       // var_dump(VIEW_PATH);
 
+        $this->container->set(PaymentGatewayInterface::class, PaddlePayment::class);
+        $this->container->set(MailerInterface::class, fn() => new CustomMailer($config->mailer['dsn']));
+        //var_dump($this->config);
 
         /*static::$container = new Container();
 
