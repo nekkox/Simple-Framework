@@ -20,7 +20,7 @@ class App
    // public static Container $container;
     protected Config $config;
 
-    public static $one;
+
 
 
     public function __construct(

@@ -14,7 +14,12 @@ class Router
     {
     }
 
-    public function registerRoutesFromControllerAttributes(array $controllers){
+    public function getClassesFromContainer(){
+        return $this->container->getEntries();
+    }
+
+    public function registerRoutesFromControllerAttributes(array $controllers): void
+    {
 
         foreach($controllers as $controller){
             $reflectionController = new \ReflectionClass($controller);

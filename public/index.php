@@ -37,18 +37,17 @@ $router->registerRoutesFromControllerAttributes(
 //$router->register('/router/', function() {echo "Home";});
 //$router->register('/router/invoices', function(){ echo "Invoice";});
 //Creating routes
-$router->get('/', [\App\Controllers\HomeController::class, 'index']);
+$router->get('/', [HomeController::class, 'index']);
 //$router->get('/', [HomeController::class, 'attributes']);
-$router->get('/download', [\App\Controllers\HomeController::class, 'download']);
-$router->get('/invoices', [\App\Controllers\InvoiceController::class, 'index']);
-$router->get('/invoices/create', [\App\Controllers\InvoiceController::class, 'create']);
-$router->post('/invoices/create', [\App\Controllers\InvoiceController::class, 'store']);
-$router->post('/upload', [\App\Controllers\HomeController::class, 'upload']);
+$router->get('/download', [HomeController::class, 'download']);
+$router->get('/invoices', [InvoiceController::class, 'index']);
+$router->get('/invoices/create', [InvoiceController::class, 'create']);
+$router->post('/invoices/create', [InvoiceController::class, 'store']);
+$router->post('/upload', [HomeController::class, 'upload']);
 //$router->get('/users', function () {
     //echo "Hello World";
 //});
 //$router->get('/router/posts',[\App\Controllers\PostController::class, 'index']);
-
 
 
 (new App(
