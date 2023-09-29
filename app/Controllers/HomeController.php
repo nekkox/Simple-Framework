@@ -9,12 +9,14 @@ use App\Container;
 use App\Enums\HttpMethod;
 use App\Exceptions\NotFoundException;
 use App\Exceptions\UploadingFileException;
+use App\Models\Email;
 use App\Models\Invoice;
 use App\Models\SignUp;
 use App\Models\User;
 use App\Services\InvoiceService;
 use App\Services\SalesTaxService;
 use App\View;
+use Symfony\Component\Mime\Address;
 
 class HomeController
 {
@@ -23,6 +25,15 @@ class HomeController
     }
     public function index(): View|string
     {
+
+        echo "hello";
+        echo "<br>";
+        echo "<br>";
+        $from = new Address('from@gmail.com');
+        $to = new Address('xxx@mail.com');
+        $mail = new Email();
+        $mail->queue($to,$from,'welcome', 'some html', 'some text');
+
         //2 different ways to render a view:
 
         //returns string
