@@ -7,6 +7,7 @@ use App\App;
 use App\Config;
 use App\Controllers\PostController;
 use App\Controllers\UserController;
+use App\Controllers\UserController2;
 use App\View;
 use App\Router;
 use App\Container;
@@ -27,7 +28,8 @@ $router->registerRoutesFromControllerAttributes(
         InvoiceController::class,
         PostController::class,
         UserController::class,
-        \App\Controllers\PonyController::class
+        \App\Controllers\PonyController::class,
+         UserController2::class,
 
     ]
 );
