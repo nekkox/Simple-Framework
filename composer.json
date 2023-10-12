@@ -13,7 +13,8 @@
     "vlucas/phpdotenv": "^5.5",
     "ext-simplexml": "*",
     "psr/container": "^2.0",
-    "symfony/mailer": "^6.3"
+    "symfony/mailer": "^6.3",
+    "doctrine/dbal": "^3.7"
   },
   "autoload": {
     "psr-4": {
