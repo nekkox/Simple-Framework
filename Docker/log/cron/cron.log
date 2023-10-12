@@ -1725,3 +1725,239 @@ Could not open input file: /var/www/scripts/email.php
 Could not open input file: /var/www/scripts/email.php
 Could not open input file: /var/www/scripts/email.php
 Could not open input file: /var/www/scripts/email.php
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught ArgumentCountError: Too few arguments to function App\App::__construct(), 1 passed in /var/www/scripts/email.php on line 15 and exactly 4 expected in /var/www/app/App.php:26
+Stack trace:
+#0 /var/www/scripts/email.php(15): App\App->__construct(Object(App\Container))
+#1 {main}
+  thrown in /var/www/app/App.php on line 26
+
+Fatal error: Uncaught Error: Using $this when not in object context in /var/www/app/App.php:85
+Stack trace:
+#0 /var/www/vendor/composer/ClassLoader.php(576): include()
+#1 /var/www/vendor/composer/ClassLoader.php(427): Composer\Autoload\{closure}('/var/www/vendor...')
+#2 /var/www/scripts/email.php(15): Composer\Autoload\ClassLoader->loadClass('App\\App')
+#3 {main}
+  thrown in /var/www/app/App.php on line 85
+
+Fatal error: Uncaught Error: Call to undefined method App\Services\EmailService::sendQueuedEmails() in /var/www/scripts/email.php:17
+Stack trace:
+#0 {main}
+  thrown in /var/www/scripts/email.php on line 17
+
+Fatal error: Uncaught Error: Call to undefined method App\Services\EmailService::sendQueuedEmails() in /var/www/scripts/email.php:17
+Stack trace:
+#0 {main}
+  thrown in /var/www/scripts/email.php on line 17
+
+Fatal error: Uncaught Error: Call to undefined method App\Services\EmailService::sendQueuedEmails() in /var/www/scripts/email.php:17
+Stack trace:
+#0 {main}
+  thrown in /var/www/scripts/email.php on line 17
+
+Fatal error: Uncaught Error: Call to undefined method App\Services\EmailService::sendQueuedEmails() in /var/www/scripts/email.php:17
+Stack trace:
+#0 {main}
+  thrown in /var/www/scripts/email.php on line 17
+
+Fatal error: Uncaught Error: Call to undefined method App\Services\EmailService::sendQueuedEmails() in /var/www/scripts/email.php:17
+Stack trace:
+#0 {main}
+  thrown in /var/www/scripts/email.php on line 17
+
+Fatal error: Uncaught Error: Call to undefined method App\Services\EmailService::sendQueuedEmails() in /var/www/scripts/email.php:17
+Stack trace:
+#0 {main}
+  thrown in /var/www/scripts/email.php on line 17
+
+Fatal error: Uncaught Error: Call to undefined method App\Services\EmailService::sendQueuedEmails() in /var/www/scripts/email.php:17
+Stack trace:
+#0 {main}
+  thrown in /var/www/scripts/email.php on line 17
+
+Fatal error: Uncaught Error: Call to undefined method App\Services\EmailService::sendQueuedEmails() in /var/www/scripts/email.php:17
+Stack trace:
+#0 {main}
+  thrown in /var/www/scripts/email.php on line 17
+
+Fatal error: Uncaught Error: Call to undefined method App\Services\EmailService::sendQueuedEmails() in /var/www/scripts/email.php:17
+Stack trace:
+#0 {main}
+  thrown in /var/www/scripts/email.php on line 17
+All sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to database
+Fatal error: Uncaught PDOException: SQLSTATE[HY000] [2002] No such file or directory in /var/www/app/DB.php:32
+Stack trace:
+#0 /var/www/app/App.php(39): App\DB->__construct(Array)
+#1 /var/www/scripts/email.php(15): App\App->boot()
+#2 {main}
+  thrown in /var/www/app/DB.php on line 32
+
+Fatal error: Uncaught PDOException: SQLSTATE[HY000] [2002] No such file or directory in /var/www/app/DB.php:32
+Stack trace:
+#0 /var/www/app/App.php(39): App\DB->__construct(Array)
+#1 /var/www/scripts/email.php(15): App\App->boot()
+#2 {main}
+  thrown in /var/www/app/DB.php on line 32
+All sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to databaseAll sent! to database

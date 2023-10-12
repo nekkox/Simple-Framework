@@ -51,12 +51,10 @@ $router->post('/upload', [HomeController::class, 'upload']);
 //});
 //$router->get('/router/posts',[\App\Controllers\PostController::class, 'index']);
 
-
 (new App(
     $container,
     $router,
-    ['uri' => $_SERVER['REQUEST_URI'], 'method' => $_SERVER['REQUEST_METHOD']],
-    new Config($_ENV)
-))->run();
+    ['uri' => $_SERVER['REQUEST_URI'], 'method' => $_SERVER['REQUEST_METHOD']]
+))->boot()->run();
 
 

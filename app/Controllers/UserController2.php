@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Attributes\Get;
 use App\Attributes\Post;
+use App\Models\Email;
 use App\View;
 use Symfony\Component\Mime\Address;
 
@@ -42,7 +43,7 @@ Thank you for signing up!
 HTMLBody;
 
         //queue the email saving it to the database
-        (new \App\Models\Email())->queue(new Address($email), new Address('support@example.com', 'Support'), 'Welcome', $htmlBody, $text);
+        (new Email())->queue(new Address($email), new Address('support@example.com', 'Support'), 'Welcome', $htmlBody, $text);
 
     }
 }
